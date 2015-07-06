@@ -192,7 +192,7 @@
         }
 		
         // Use UIWebView
-        self.rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+        if (!self.rootViewController) self.rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
         self.authorizationWebView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.rootViewController.view.frame.size.width, self.rootViewController.view.frame.size.height)];
         [self.authorizationWebView setDelegate:self];
         NSURLRequest *request = [NSURLRequest requestWithURL:self.authorizationUrl];
@@ -218,7 +218,6 @@
         // Return to the app
         [webView removeFromSuperview];
         self.authorizationWebView = nil;
-        self.rootViewController = nil;
         
         // Parse the tokens
         NSString *query = [request.URL.absoluteString componentsSeparatedByString:@"?"][1];
@@ -254,7 +253,6 @@
         // If desktop web page, close and resend authorization with mobile mask activated
         [webView removeFromSuperview];
         self.authorizationWebView = nil;
-        self.rootViewController = nil;
         self.mobileWebAuthorization = YES;
         [self sendUserToAuthorization];
         
