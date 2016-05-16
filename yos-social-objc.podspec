@@ -1,5 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "yos-social-objc"
+  s.summary       = "Yahoo social SDK"
   s.version       = "1.1"
   s.homepage      = "https://developer.yahoo.com/social/sdk/"
   s.author        = 'Yahoo'
