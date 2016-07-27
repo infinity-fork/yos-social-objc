@@ -3,35 +3,40 @@
 //  YOAuth
 //
 //  Created by Zach Graves on 2/14/09.
-//  Updated by Michael Ho on 8/20/14.
-//  Copyright 2014 Yahoo Inc.
-//  
+//  Copyright (c) 2009 Yahoo! Inc. All rights reserved.
+//
 //  The copyrights embodied in the content of this file are licensed under the BSD (revised) open source license.
 //
 
 #import <Foundation/Foundation.h>
 
 /**
- * A utility providing methods to create OAuth parameters for 
- * oauth_nonce, timestamp and version.
+ * A utility providing methods to create OAuth parameters for
+ * <code>oauth_nonce</code>, <code>timestamp</code> and <code>version</code>.
  */
-@interface YOAuthUtil : NSObject
-
-#pragma mark - Public methods
+@interface YOAuthUtil : NSObject {
+    
+}
 
 /**
- * Returns an unique oauth_nonce parameter.
+ * Returns an unique <code>oauth_nonce</code> parameter.
  */
 + (NSString *)oauth_nonce;
 
 /**
- * Returns the current timestamp usable as the oauth_timestamp parameter.
+ * Returns the current timestamp usable as the <code>oauth_timestamp</code> parameter.
  */
 + (NSString *)oauth_timestamp;
 
 /**
- * Returns the oauth_version parameter.
+ * Returns the <code>oauth_version</code> parameter.
  */
 + (NSString *)oauth_version;
+
+/**
+ * Timestamp offset handling for OAuth clock sync
+ */
++ (void)setTimestampOffset:(long)offset;
++ (void)loadTimestampOffset;
 
 @end
